@@ -1,0 +1,31 @@
+<!-- *********************************************************************** -->
+<!--                                                                         -->
+<!--                                                      :::      ::::::::  -->
+<!-- upload.html                                        :+:      :+:    :+:  -->
+<!--                                                  +:+ +:+         +:+    -->
+<!-- By: spayeur <marvin@42.fr>                     +#+  +:+       +#+       -->
+<!--                                              +#+#+#+#+#+   +#+          -->
+<!-- Created: 2023/01/24 13:14:59 by spayeur           #+#    #+#            -->
+<!-- Updated: 2023/02/04 19:14:16 by spayeur          ###   ########.fr      -->
+<!--                                                                         -->
+<!-- *********************************************************************** -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Upload de plusieurs fichiers</title>
+	<link rel="stylesheet" href="upload.css">
+</head>
+<body>
+	<div id="popup"></div>
+	<form id="form" action="../upload" method="post" enctype="multipart/form-data">
+		<p>Glissez et déposez vos fichiers ici ou cliquez pour sélectionner des fichiers</p>
+		<input id="input" type="file" name="files" multiple>
+		<div id="files">
+		</div>
+		<button id="button" type="submit">Envoyer</button>
+	</form>
+	<script src="upload.js"></script> 
+</body>
+</html>

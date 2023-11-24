@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WebServ</title>
+		<link rel="stylesheet" href="./css/home.css">
+		<link href="./css/snow.css" rel="stylesheet">
+	</head>
+	<body>
+		<br>
+		<body><div id="flakes" class="flakes"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="snow-1024px"></i><i class="snow-1024px"></i><i class="snow-1024px"></i><i class="snow-1280px"></i><i class="snow-1280px"></i><i class="snow-1366px"></i><i class="snow-1366px"></i><i class="snow-1440px"></i><i class="snow-1600px"></i><i class="snow-1600px"></i><i class="snow-1800px"></i><i class="snow-1800px"></i><i class="snow-1920px"></i><i class="snow-1920px"></i><div></div></div>
+			<script>
+		  
+		  (function () {
+			"use strict";
+		  
+			// Dynamically add snowflake HTML & CSS to the page upon page-load.
+		  
+			function letItSnow() {
+				var flakesDiv = document.createElement("div"),
+					link = document.createElement("link"),
+					html = "";
+			
+				// Fetch snow CSS:
+				link.href = "./css/snow.css";
+				link.rel = "stylesheet";
+				document.head.appendChild(link);
+			
+				// Build HTML:
+				flakesDiv.id = "flakes";
+				flakesDiv.className = "flakes";
+			
+				// 1 row at 768px
+				html += '<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>';
+			
+				// Common device widths
+				html += '<i class=snow-1024px></i><i class=snow-1024px></i><i class=snow-1024px></i>';
+				html += '<i class=snow-1280px></i><i class=snow-1280px></i>';
+				html += '<i class=snow-1366px></i><i class=snow-1366px></i>';
+				html += '<i class=snow-1440px></i>';
+				html += '<i class=snow-1600px></i><i class=snow-1600px></i>';
+				html += '<i class=snow-1800px></i><i class=snow-1800px></i>';
+				html += '<i class=snow-1920px></i><i class=snow-1920px></i>';
+				html += '<div></div>';
+			
+				// Add HTML
+				flakesDiv.innerHTML = html;
+				document.body.insertBefore(flakesDiv, document.body.childNodes[0]);
+			}
+		  
+			// classList test to eliminate IE9 specifically
+			if (window.addEventListener && document.documentElement.classList) {
+				window.addEventListener("load", letItSnow, false);
+			}
+		  
+			// For Testing purposes only: disables the embedded CSS in this demo page
+			var n = document.getElementById("snowflakes");
+			n.parentNode.removeChild(n);
+		  
+			}());
+			</script>
+		<p>
+		</div>
+			<div class="container">
+				<div class="wrapper">
+					<titre class="titre">WEBSERV</titre>
+					<div class="elementGet">
+						<div class="inside">GET method</div>
+						<a href="content/Stylo_lance-flammes.jpg" class="buttonClass">GET</a>
+					</div>
+					<div class="elementPost">
+						<div class="inside">POST method</div>
+						<a href="post/upload.html" class="buttonClass">POST</a>
+					</div>
+					<div class="elementDelete">
+						<div class="inside">DELETE method</div>
+						<form>
+							<input type="text" name="file_path" placeholder="path/to/file" class="formbutton">
+							<input type="button" value="DELETE" class="buttonClass" onclick="submitForm()" onclick="document.getElementById('myForm').reset();">
+						</form>
+					</div>
+				</div>
+			</div>
+		</p>
+		<h6>Created by <a href="https://profile.intra.42.fr/users/jvermeer" class="fontLink">jvermeer</a>, <a href="https://profile.intra.42.fr/users/spayeur" class="fontLink">spayeur</a> & <a href="https://profile.intra.42.fr/users/acousini" class="fontLink">acousini</a></h6>
+	</body>
+	<script>
+	function submitForm() {
+		const filePath = document.querySelector('input[name="file_path"]').value;
+	  
+		fetch(`${filePath}`, {
+		  method: 'DELETE',
+		})
+		  .then((response) => {
+			if (!response.ok) {
+			  throw new Error(response.statusText);
+			}
+			return response.json();
+		  })
+		  .then((data) => {
+			console.log(data);
+			// handle success
+			document.querySelector('input[name="file_path"]').value = '';
+		  })
+		  .catch((error) => {
+			console.error(error);
+			// handle error
+		  });
+	  }
+	</script>
+</html>

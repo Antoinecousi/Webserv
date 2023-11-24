@@ -1,0 +1,300 @@
+
+      /* Snow place to be on a cold day in Tesco */
+
+	  .flakes {
+		position: fixed;
+		top:0;
+		left:0;
+		width: 100%;
+		text-align: center;
+		z-index: -1;
+  
+		/* Encourage hardware acceleration */
+		-webkit-transform: translate(0, -10vh);
+				transform: translate(0, -10vh);
+		-webkit-transform: translate3d(0, -10vh, 0);
+				transform: translate3d(0, -10vh, 0);
+  
+		/* Flex used to space the i tags evenly horizontally. Plays nicely at inbetween widths */
+		/* Temporarily disable if you are adjusting the number of flakes on screen */
+		display:-webkit-box;
+		display:-webkit-flex;
+		display:-ms-flexbox;
+		display:flex;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: justify;
+				justify-content: space-between;
+  
+		/* Allow for multi row snowflakes */
+		-webkit-flex-wrap: wrap;
+			-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+	  }
+  
+  
+	  /* Remove from ie9- as there are no animations available */
+  
+	  .ie6 .flakes,
+	  .ie7 .flakes,
+	  .ie8 .flakes,
+	  .ie9 .flakes {
+		display: none;
+	  }
+  
+  
+	  /* Generic styling of snowflakes, default animation and transform */
+  
+	  .flakes i {
+		display: inline-block;
+  
+		-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+		-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+		-webkit-perspective: 1000;
+				perspective: 1000;
+		-webkit-animation: falling;
+				animation: falling;
+		-webkit-animation-iteration-count: infinite;
+				animation-iteration-count: infinite;
+  
+		background-size: contain;
+		background-repeat: no-repeat;
+		backface-visibility: hidden;
+		background-color: white;
+	  }
+  
+  
+	  /* Four sizes, each requires individual origins set */
+  
+	  .flakes i:nth-child(4n+0) {
+		width: 100px;
+		height: 100px;
+		-webkit-transform-origin: -5% -5%;
+			-ms-transform-origin: -5% -5%;
+				transform-origin: -5% -5%;
+	  }
+	  .flakes i:nth-child(4n+1) {
+		width: 40px;
+		height: 40px;
+		-webkit-transform-origin: 15% 0;
+			-ms-transform-origin: 15% 0;
+				transform-origin: 15% 0;
+	  }
+	  .flakes i:nth-child(4n+2) {
+		width: 45px;
+		height: 45px;
+		-webkit-transform-origin: 0 -30%;
+			-ms-transform-origin: 0 -30%;
+				transform-origin: 0 -30%;
+	  }
+	  .flakes i:nth-child(4n+3) {
+		width: 15px;
+		height: 15px;
+		-webkit-transform-origin: -100% -100%;
+			-ms-transform-origin: -100% -100%;
+				transform-origin: -100% -100%;
+	  }
+	  .flakes i:nth-child(4n+4) {
+		width: 10px;
+		height: 10px;
+		-webkit-transform-origin: -100% -100%;
+			-ms-transform-origin: -100% -100%;
+				transform-origin: -100% -100%;
+	  }
+  
+  
+	  /* Keep first snowflake close to the edge */
+  
+	  .flakes i:first-child {
+		-webkit-transform-origin: 60% 40%;
+			-ms-transform-origin: 60% 40%;
+				transform-origin: 60% 40%;
+	  }
+  
+  
+	  /* Delay the start times */
+  
+	  .flakes i:nth-of-type(5n+0) {
+		-webkit-animation-delay: 0s;
+				animation-delay: 0s;
+	  }
+	  .flakes i:nth-of-type(5n+1) {
+		-webkit-animation-delay: 2s;
+				animation-delay: 2s;
+	  }
+	  .flakes i:nth-of-type(5n+2) {
+		-webkit-animation-delay: 4s;
+				animation-delay: 4s;
+	  }
+	  .flakes i:nth-of-type(5n+3) {
+		-webkit-animation-delay: 6s;
+				animation-delay: 6s;
+	  }
+	  .flakes i:nth-of-type(5n+4) {
+		-webkit-animation-delay: 8s;
+				animation-delay: 8s;
+	  }
+  
+  
+	  /* Animation durations are calculated to be multiples  +/- a few seconds for initial delays */
+  
+	  .flakes i:nth-child(3n+0) {
+		-webkit-animation-duration: 12s;
+				animation-duration: 12s;
+	  }
+	  .flakes i:nth-child(3n+1) {
+		-webkit-animation-duration: 18s;
+				animation-duration: 18s;
+	  }
+	  .flakes i:nth-child(3n+2) {
+		-webkit-animation-duration: 24s;
+				animation-duration: 24s;
+	  }
+  
+  
+	  /* Tweak timing functions - a tad more random */
+  
+	  .flakes i:nth-of-type(6n+0) {
+		-webkit-animation-timing-function: ease-in-out;
+				animation-timing-function: ease-in-out;
+	  }
+	  .flakes i:nth-of-type(6n+1) {
+		-webkit-animation-timing-function: ease-out;
+				animation-timing-function: ease-out;
+	  }
+	  .flakes i:nth-of-type(6n+2) {
+		-webkit-animation-timing-function: ease;
+				animation-timing-function: ease;
+	  }
+	  .flakes i:nth-of-type(6n+3) {
+		-webkit-animation-timing-function: ease-in;
+				animation-timing-function: ease-in;
+	  }
+	  .flakes i:nth-of-type(6n+4) {
+		-webkit-animation-timing-function: linear;
+				animation-timing-function: linear;
+	  }
+	  .flakes i:nth-of-type(6n+5) {
+		-webkit-animation-timing-function: cubic-bezier(0.2, 0.3, 0.8, 0.9);
+				animation-timing-function: cubic-bezier(0.2, 0.3, 0.8, 0.9);
+	  }
+  
+  
+	  /* Tweak opacity - more randomness */
+  
+	  .flakes i:nth-of-type(7n+0) {opacity: 0.5;}
+	  .flakes i:nth-of-type(7n+1) {opacity: 0.8;}
+	  .flakes i:nth-of-type(7n+2) {opacity: 0.3;}
+	  .flakes i:nth-of-type(7n+4) {opacity: 0.7;}
+	  .flakes i:nth-of-type(7n+6) {opacity: 0.6;}
+  
+  
+	  /* Increase number of snowflakes at common device widths */
+  
+	  .flakes .snow-1024px,
+	  .flakes .snow-1280px,
+	  .flakes .snow-1366px,
+	  .flakes .snow-1440px,
+	  .flakes .snow-1600px,
+	  .flakes .snow-1800px,
+	  .flakes .snow-1920px {display: none}
+	  @media screen and (min-width: 1024px) {.flakes .snow-1024px {display: inline-block}}
+	  @media screen and (min-width: 1280px) {.flakes .snow-1280px {display: inline-block}}
+	  @media screen and (min-width: 1366px) {.flakes .snow-1366px {display: inline-block}}
+	  @media screen and (min-width: 1440px) {.flakes .snow-1440px {display: inline-block}}
+	  @media screen and (min-width: 1600px) {.flakes .snow-1600px {display: inline-block}}
+	  @media screen and (min-width: 1800px) {.flakes .snow-1800px {display: inline-block}}
+	  @media screen and (min-width: 1920px) {.flakes .snow-1920px {display: inline-block}}
+  
+  
+	  /* Animation for all snowflakes */
+  
+	  @-webkit-keyframes falling {
+		from {
+		  -webkit-transform: translate(0, 0) rotate(0deg) scale(0.8);
+				  transform: translate(0, 0) rotate(0deg) scale(0.8);
+		}
+		to {
+		  -webkit-transform: translate(0, 120VH) rotate(360deg) scale(1.2);
+				  transform: translate(0, 120VH) rotate(360deg) scale(1.2);
+		}
+	  }
+  
+	  @keyframes falling {
+		from {
+		  -webkit-transform: translate(0, 0) rotate(0deg) scale(0.8);
+				  transform: translate(0, 0) rotate(0deg) scale(0.8);
+		}
+		to {
+		  -webkit-transform: translate(0, 120VH) rotate(360deg) scale(1.2);
+				  transform: translate(0, 120VH) rotate(360deg) scale(1.2);
+		}
+	  }
+  
+  
+	  /* Cover initial position of flakes incase of low screen height */
+  
+	  .flakes div {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: #fff;
+	  }
+  
+  
+  
+  
+	  /* Not required at all */
+  
+  
+	  .snow {
+		display: block;
+		margin: 8px auto;
+		-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+		-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+		-webkit-perspective: 1000;
+				perspective: 1000;
+		-webkit-animation: snowflake 30s linear 0s infinite alternate;
+				animation: snowflake 30s linear 0s infinite alternate;
+		-webkit-filter: drop-shadow(.1rem .1rem .25rem rgba(0,0,0,.5));
+				filter: drop-shadow(.1rem .1rem .25rem rgba(0,0,0,.5));
+  
+		-webkit-transition: -webkit-filter .5s ease-out 0s;
+				transition: -webkit-filter .5s ease-out 0s;
+				transition: filter .5s ease-out 0s;
+				transition: filter .5s ease-out 0s, -webkit-filter .5s ease-out 0s;
+	  }
+	  .snow:hover {
+		-webkit-filter: drop-shadow(.1rem .1rem .1rem rgba(0,0,0,.75));
+				filter: drop-shadow(.1rem .1rem .1rem rgba(0,0,0,.75));
+	  }
+  
+	  @keyframes snowflake {
+		from {
+		  -webkit-transform: translate(-50%, 0) rotate(0deg) scale(1);
+				  transform: translate(-50%, 0) rotate(0deg) scale(1);
+		}
+		x50% {
+		  -webkit-transform: translate(0%, 0) rotate(180deg) scale(1.2);
+				  transform: translate(0%, 0) rotate(180deg) scale(1.2);
+  
+		}
+		to {
+		  -webkit-transform: translate(50%, 0) rotate(360deg) scale(1);
+				  transform: translate(50%, 0) rotate(360deg) scale(1);
+		}
+	  }
+  
+	  .background {
+		background-color: #FDFDFD;
+		/* full bleed backgounds require a little opacity (rgba ie9+) */
+		background-color: rgba(253, 253, 253, .4);
+	  }
+  
+  
