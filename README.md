@@ -31,7 +31,13 @@ This project is part of the 42 school curriculum. The goal is to implement a web
 
 ## Configuration File Format
 
--	It is based on the nginx configuration file format.
+-   It is based on the nginx configuration file format.
 -   Listen directive: Specify the IP and port (e.g., `listen 127.0.0.1:8080`).
 -   Server name directive: Define server names for virtual hosting.
 -   Location blocks: Specify how different URIs should be treated.
+
+## Authors
+
+-   Stéphane Payeur
+-   Jean Baptiste Vermeersch
+-   Antoine Cousinié
